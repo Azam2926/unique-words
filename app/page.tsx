@@ -14,7 +14,7 @@ export default async function Home() {
 
                 {words.length > 0 ? (
                     <div className="mt-4">
-                        <h2 className="text-xl font-semibold mb-2">Kiritilgan so'zlar</h2>
+                        <h2 className="text-xl font-semibold mb-2">Kiritilgan so&#39;zlar</h2>
                         <ul className="space-y-2">
                             {words.map((word) => (
                                 <li key={word.id} className="p-2 bg-gray-50 dark:bg-gray-800 rounded">

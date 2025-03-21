@@ -1,6 +1,6 @@
 "use client";
 
-import {useCallback, useState} from "react";
+import {useState} from "react";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {userInputSchema, type UserInputType} from "@/lib/defs";
@@ -27,7 +27,7 @@ export default function WordForm({onSubmit}: WordFormProps) {
         },
     });
 
-    const handleSubmit = useCallback(async (data: UserInputType) => {
+    const handleSubmit = async (data: UserInputType) => {
         setIsSubmitting(true);
         try {
             // Create FormData to pass to the server action
@@ -42,7 +42,7 @@ export default function WordForm({onSubmit}: WordFormProps) {
         } finally {
             setIsSubmitting(false);
         }
-    }, [form]);
+    };
 
     return (
         <Card className="w-full">
