@@ -23,8 +23,11 @@ export async function addWordAction(formData: FormData) {
         }
 
         const headersList = await headers()
-        const ip = headersList.get("x-forwarded-for") || "127.0.0.1";
-        console.log('ip', ip)
+        let ip = headersList.get("x-forwarded-for") || "Unknown IP";
+
+        if (ip.startsWith("::ffff:")) {
+            ip = ip.replace("::ffff:", "");
+        }
 
 
         const values = [...new Set(result.data.word.match(/\b[^\d\W][\w‘’']+\b/g) || [])]
