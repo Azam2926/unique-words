@@ -114,7 +114,10 @@ export async function getAffixRules() {
     .readFileSync(AFF_PATH, "utf8")
     .split("\n")
     .map((line) => line.trim());
-  const rules = { prefixes: [], suffixes: [] };
+  const rules: {
+    prefixes: { flag: string; add: string }[];
+    suffixes: { flag: string; add: string }[];
+  } = { prefixes: [], suffixes: [] };
 
   for (const line of lines) {
     if (line.startsWith("PFX")) {
