@@ -27,7 +27,7 @@ export interface WordEntity {
 
 // Define service functions for domain operations
 export interface WordService {
-    addWord(word: string, ip: string): Promise<void>;
+    addWords(values: {word: string, ip: string}[]): Promise<void>;
     getActiveWords(): Promise<Pick<WordEntity, "id" | "word">[]>;
     deactivateWord(id: number): Promise<void>;
 }
